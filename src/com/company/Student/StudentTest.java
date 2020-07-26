@@ -23,6 +23,6 @@ class StudentTest {
 
     @Test
     void takeCourse() {
-        assertEquals("course " + course.getTitle() + "taken", student.takeCourse(course));
+        assertEquals("course " + course.getTitle() + " taken", student.takeCourse(course));
     }
 }

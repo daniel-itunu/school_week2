@@ -31,6 +31,6 @@ public class Student {
      * @return String confirming course taken.
      */
     public String takeCourse(Course course) {
-        return "course " + course.getTitle() + "taken";
+        return "course " + course.getTitle() + " taken";
     }
 }
