@@ -1,30 +1,19 @@
-package com.company.Staff;
+package com.company.Staff.Principal;
 
-import com.company.Applicant.Applicant;
 import com.company.Contract.Capacity;
 import com.company.Course.Course;
+import com.company.Staff.Staff;
 import com.company.Student.Student;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Principal class models the principal entity.
- * Inherits from the abstract class "staff" and implemnents the capacity(responsibility) interface.
+ * Inherits from the abstract class "staff" and implements the capacity(responsibility) interface.
  */
 public class Principal extends Staff implements Capacity {
-
-    /**
-     * Empty constructor calling the parent class "staff" default constructor.
-     */
-    public Principal() {
-        super();
-    }
-
-    /***
-     * Primary constructor having name of the principal.
-     * @param name: the name of the principal.
-     */
-    public Principal(String name) {
-        super(name);
-    }
+    public static List<Student> list = new ArrayList<>(); //Arraylist(database) of students admitted
+    public static Principal principal = new Principal();
 
     /**
      * @return false since principal has no capacity to teach a student.
@@ -60,15 +49,17 @@ public class Principal extends Staff implements Capacity {
     }
 
     /**
-     * @param applicant: the applicant to be admitted based on age which must be greater than 11.
+     * @param student: the applicant to be admitted based on age which must be greater than 11.
      * @return a string confirming admission capacity/status.
      */
     @Override
-    public String admit(Applicant applicant) {
-        if (applicant.getAge() > 11) {
-            return applicant.getName() + " admitted";
-        } else {
-            return applicant.getName() + " doesn't meet required admission age";
+    public String admit(Student student) {
+            if (student.getAge() > 11) {
+                list.add(student);
+                return student.getName() + " admitted. Total student is "+list.size();
+            }
+            else {
+            return student.getName() + " doesn't meet required admission age";
         }
     }
 
@@ -78,7 +69,20 @@ public class Principal extends Staff implements Capacity {
      */
     @Override
     public String expel(Student student) {
-        return "Sucessfully expelled " + student.getName();
+        if (list.contains(student)) {
+            list.remove(student);
+            return "Successfully expelled " + student.getName() +". Total student is "+ list.size();
+        } else {
+            return "Student not found";
+        }
+
+    }
+
+    /**
+     * @return singleton principal instance
+     */
+    public static Principal getPrincipal(){
+        return principal;
     }
 
 }

@@ -1,6 +1,5 @@
-package com.company.Staff;
+package com.company.Staff.Teacher;
 
-import com.company.Applicant.Applicant;
 import com.company.Course.Course;
 import com.company.Student.Student;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TeacherTest {
     private final Teacher teacher = new Teacher();
     private final Course course = new Course();
-    private final Applicant applicant = new Applicant();
     private final Student student = new Student();
 
     @Test
@@ -35,8 +33,8 @@ class TeacherTest {
 
     @Test
     void admit() {
-        assertEquals("teacher has no capacity to admit applicant " + applicant.getName(),
-                teacher.admit(applicant));
+        assertEquals("teacher has no capacity to admit applicant " + student.getName(),
+                teacher.admit(student));
     }
 
     @Test

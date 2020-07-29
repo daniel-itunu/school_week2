@@ -1,8 +1,8 @@
-package com.company.Staff;
+package com.company.Staff.NonAcademicStaff;
 
-import com.company.Applicant.Applicant;
 import com.company.Contract.Capacity;
 import com.company.Course.Course;
+import com.company.Staff.Staff;
 import com.company.Student.Student;
 
 public class NonAcademicStaff extends Staff implements Capacity {
@@ -10,9 +10,7 @@ public class NonAcademicStaff extends Staff implements Capacity {
         super(name);
     }
 
-    public NonAcademicStaff() {
-
-    }
+    public NonAcademicStaff() {}
 
     /**
      * @return false since non-academic staff has no capacity to teach.
@@ -48,12 +46,12 @@ public class NonAcademicStaff extends Staff implements Capacity {
     }
 
     /**
-     * @param applicant: the applicant to be admitted based on age which must be greater than 11.
+     * @param student: the applicant to be admitted based on age which must be greater than 11.
      * @return a string confirming admission capacity/status.
      */
     @Override
-    public String admit(Applicant applicant) {
-        return "Non-academic staff has no capacity to admit applicant " + applicant.getName();
+    public String admit(Student student) {
+        return "Non-academic staff has no capacity to admit applicant " + student.getName();
     }
 
     /**

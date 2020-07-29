@@ -7,7 +7,7 @@ package com.company.Staff;
  * 3. Teacher
  */
 
-abstract class Staff {
+public abstract class Staff {
 
     /**
      * Field name: name of staff.

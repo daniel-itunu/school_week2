@@ -1,9 +1,11 @@
 package com.company.Contract;
 
-import com.company.Applicant.Applicant;
 import com.company.Course.Course;
 import com.company.Student.Student;
 
+/**
+ * interface Capacity provides various responsibilities of different staff.
+ */
 public interface Capacity {
     boolean canTeach();
 
@@ -13,7 +15,7 @@ public interface Capacity {
 
     String teach(Course course);
 
-    String admit(Applicant applicant);
+    String admit(Student student);
 
     String expel(Student student);
 }

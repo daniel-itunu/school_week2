@@ -1,8 +1,8 @@
-package com.company.Staff;
+package com.company.Staff.Teacher;
 
-import com.company.Applicant.Applicant;
 import com.company.Contract.Capacity;
 import com.company.Course.Course;
+import com.company.Staff.Staff;
 import com.company.Student.Student;
 
 /**
@@ -60,12 +60,12 @@ public class Teacher extends Staff implements Capacity {
     }
 
     /**
-     * @param applicant: the applicant to be admitted based on age which must be greater than 11.
+     * @param student: the applicant to be admitted based on age which must be greater than 11.
      * @return a string confirming admission capacity/status.
      */
     @Override
-    public String admit(Applicant applicant) {
-        return "teacher has no capacity to admit applicant " + applicant.getName();
+    public String admit(Student student) {
+        return "teacher has no capacity to admit applicant " + student.getName();
     }
 
     /**
